@@ -1,5 +1,5 @@
-**/proj_modelsim/work
-**/proj_modelsim/vsim.wlf
+**/proy_modelsim/work
+**/proy_modelsim/vsim.wlf
 **/db/
 **/incremental_db/
 *.bak
@@ -7,7 +7,7 @@
 *.ini
 **/output_files/*.*
 **/output_files/!*.sof
-**/proj_quartus/greybox_tmp
+**/proy_quartus/greybox_tmp
 *.mti
 *.mpf
 *.qws
