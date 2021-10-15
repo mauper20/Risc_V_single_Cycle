@@ -23,14 +23,14 @@ module ALU
 	output reg [31:0] ALU_Result_o
 );
 
-localparam ADD = 4'b0000;
-localparam SUB = 4'b0001;
-localparam XOR = 4'b0010;
-localparam OR  = 4'b0011;
-localparam AND = 4'b0100;
-localparam SLL = 4'b0101;
-localparam SRL = 4'b0111;
-localparam LUI = 4'b1001;
+localparam ADD = 4'b00_00;
+localparam SUB = 4'b00_01;
+localparam XOR = 4'b00_10;
+localparam OR  = 4'b00_11;
+localparam AND = 4'b01_00;
+localparam SLL = 4'b01_01;
+localparam SRL = 4'b01_11;
+localparam LUI = 4'b10_01;
 
    
    always @ (A_i or B_i or ALU_Operation_i)
