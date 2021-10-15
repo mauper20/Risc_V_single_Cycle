@@ -41,7 +41,7 @@ always@(OP_i) begin
 		
 
 		default:
-			control_values= 9'b000_00_000;
+			             control_values= 9'b000_00_000;
 		endcase
 end	
 
