@@ -36,7 +36,7 @@ always@(OP_i) begin
 	
 		R_Type:         control_values= 9'b001_00_0_000;
 		I_Type_LOGIC:   control_values= 9'b001_00_1_001;
-		U_Type_LUI:   		 control_values= 9'b001_00_1_010;
+		U_Type_LUI:   	 control_values= 9'b001_00_1_010;
 		
 		
 
