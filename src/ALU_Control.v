@@ -50,16 +50,16 @@ always@(selector)begin
 	   R_Type_SUB:    alu_control_values= 4'b00_01;
 		R_Type_XOR:    alu_control_values= 4'b00_10;
 		R_Type_OR:     alu_control_values= 4'b00_11;
-		R_Type_AND:    alu_control_values= 4'b00_00;
-		R_Type_SLL:    alu_control_values= 4'b00_00;
-		R_Type_SRL:    alu_control_values= 4'b00_00;
+		R_Type_AND:    alu_control_values= 4'b01_00;
+		R_Type_SLL:    alu_control_values= 4'b01_01;
+		R_Type_SRL:    alu_control_values= 4'b01_11;
 		I_Type_ADDI:   alu_control_values= 4'b00_00;
-		I_Type_ADDI:   alu_control_values= 4'b00_00;
-		I_Type_ADDI:   alu_control_values= 4'b00_00;
-		I_Type_ADDI:   alu_control_values= 4'b00_00;
-		I_Type_ADDI:   alu_control_values= 4'b00_00;
-		I_Type_ADDI:   alu_control_values= 4'b00_00;
-		U_Type_LUI:    alu_control_values= 4'b00_00;
+		I_Type_XORI:   alu_control_values= 4'b00_01;
+		I_Type_ORI:    alu_control_values= 4'b10_00;
+		I_Type_ANDI:   alu_control_values= 4'b01_00;
+		I_Type_SLLI:   alu_control_values= 4'b01_01;
+		I_Type_SRLI:   alu_control_values= 4'b01_11;
+		U_Type_LUI:    alu_control_values= 4'b10_01;
 
 		default: alu_control_values = 4'b00_00;
 	endcase
