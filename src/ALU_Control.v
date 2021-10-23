@@ -37,6 +37,8 @@ localparam I_Type_ORI      =7'bx_001_110;
 localparam I_Type_ANDI     =7'bx_001_111;
 localparam I_Type_SLLI     =7'b0_001_001;
 localparam I_Type_SRLI     =7'b0_001_101;
+localparam I_Mem_Type_LW   =7'b0_100_010;
+localparam S_Mem_Type_SW   =7'b0_011_010;
 localparam U_Type_LUI      =7'bx_010_XXX;
 
 reg [3:0] alu_control_values;
@@ -59,7 +61,10 @@ always@(selector)begin
 			I_Type_ANDI:   alu_control_values= 4'b01_00;
 			I_Type_SLLI:   alu_control_values= 4'b01_01;
 			I_Type_SRLI:   alu_control_values= 4'b01_11;
+			I_Mem_Type_LW: alu_control_values= 4'b11_01;
+			S_Mem_Type_SW: alu_control_values= 4'b11_00;
 			U_Type_LUI:    alu_control_values= 4'b10_01;
+		
 
 		default: 
 			alu_control_values = 4'b00_00;
