@@ -67,7 +67,10 @@ wire [3:0] alu_operation_w;
 
 /**Instruction Bus**/	
 wire [31:0] instruction_bus_w;
-
+/**DataMemory**/
+wire [31:0] Read_data_mem_w;
+/**Multiplexer MUX_data_OR_mem_FOR_Wregister**/
+wire [31:0] Wirte_data_Rdat_or_Datmem_w;
 
 //******************************************************************/
 //******************************************************************/
@@ -137,7 +140,7 @@ REGISTER_FILE_UNIT
 	.Write_Register_i(instruction_bus_w[11:7]),
 	.Read_Register_1_i(instruction_bus_w[19:15]),
 	.Read_Register_2_i(instruction_bus_w[24:20]),
-	.Write_Data_i(alu_result_w),
+	.Write_Data_i(Wirte_data_Rdat_or_Datmem_w),
 	.Read_Data_1_o(read_data_1_w),
 	.Read_Data_2_o(read_data_2_w)
 
@@ -192,6 +195,36 @@ ALU_UNIT
 
 
 
+
+Data_Memory 
+#(	
+   .DATA_WIDTH(32)
+)
+Data_memory
+(
+	.clk(clk),
+	.Mem_Write_i(mem_write_w),
+	.Mem_Read_i(mem_read_w),
+	.Write_Data_i(read_data_2_w),
+	.Address_i(alu_result_w),
+
+	.Read_Data_o(Read_data_mem_w)
+);
+
+
+Multiplexer_2_to_1
+#(
+	.NBits(32)
+)
+MUX_data_OR_mem_FOR_Wregister
+(
+	.Selector_i(mem_to_reg_w),
+	.Mux_Data_0_i(alu_result_w),
+	.Mux_Data_1_i(Read_data_mem_w),
+	
+	.Mux_Output_o(Wirte_data_Rdat_or_Datmem_w)
+
+);
 
 endmodule
 
