@@ -27,11 +27,13 @@ localparam ADD = 4'b00_00;
 localparam SUB = 4'b00_01;
 localparam XOR = 4'b00_10;
 localparam OR  = 4'b00_11;
-localparam ORI  = 4'b10_00;
+localparam ORI = 4'b10_00;
 localparam AND = 4'b01_00;
 localparam SLL = 4'b01_01;
 localparam SRL = 4'b01_11;
 localparam LUI = 4'b10_01;
+localparam LW  = 4'b11_01;
+localparam SW  = 4'b11_00;
 
    
    always @ (A_i or B_i or ALU_Operation_i)
@@ -63,7 +65,13 @@ localparam LUI = 4'b10_01;
 			
 		SLL: // sll
 		   ALU_Result_o= A_i << B_i;  
-	
+			
+		SW:  // sw
+			ALU_Result_o = A_i + B_i;
+			
+	   LW:  // LW
+			ALU_Result_o = A_i + B_i;
+			
 		default:
 			ALU_Result_o = 0;	
 		endcase // case(control)
