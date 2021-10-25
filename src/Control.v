@@ -30,6 +30,8 @@ localparam I_Type_LOGIC     =7'h13;
 localparam U_Type_LUI       =7'h37;
 localparam S_Type_SW        =7'h23;
 localparam I_Mem_Type_LW    =7'h03;
+localparam J_Type_JAL       =7'h6F;
+localparam B_Type           =7'h63;
 
 reg [8:0] control_values;
 
