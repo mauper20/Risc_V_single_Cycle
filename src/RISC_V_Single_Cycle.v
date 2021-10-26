@@ -37,6 +37,7 @@ module RISC_V_Single_Cycle
 /* Signals to connect modules*/
 
 /**Control**/
+wire Branch_w;
 wire alu_src_w;
 wire reg_write_w;
 wire mem_to_reg_w;
@@ -58,6 +59,7 @@ wire [31:0] inmmediate_data_w;
 
 /**ALU**/
 wire [31:0] alu_result_w;
+wire Zero_O_w;
 
 /**Multiplexer MUX_DATA_OR_IMM_FOR_ALU**/
 wire [31:0] read_data_2_or_imm_w;
@@ -67,11 +69,20 @@ wire [3:0] alu_operation_w;
 
 /**Instruction Bus**/	
 wire [31:0] instruction_bus_w;
+//******************************************************************/
+//**************cables agregados**************/
+//******************************************************************/
+
+/**ADDER_PC_PLUS_INMM**/
+wire AND_OUT_w;
 /**DataMemory**/
 wire [31:0] Read_data_mem_w;
 /**Multiplexer MUX_data_OR_mem_FOR_Wregister**/
 wire [31:0] Wirte_data_Rdat_or_Datmem_w;
-
+/**Multiplexer MUX_PCplus4_OR_brancheJal**/
+wire [31:0] Wirte_PCplus4_OR_brancheJal_w;
+/**ADDER_PC_PLUS_INMM**/
+wire [31:0] ADDER_PC_PLUS_INMM_w;
 //******************************************************************/
 //******************************************************************/
 //******************************************************************/
@@ -83,6 +94,7 @@ CONTROL_UNIT
 	/****/
 	.OP_i(instruction_bus_w[6:0]),
 	/** outputus**/
+	.Branch_o(Branch_w),
 	.ALU_Op_o(alu_op_w),
 	.ALU_Src_o(alu_src_w),
 	.Reg_Write_o(reg_write_w),
@@ -97,7 +109,7 @@ PROGRAM_COUNTER
 (
 	.clk(clk),
 	.reset(reset),
-	.Next_PC(pc_plus_4_w),
+	.Next_PC(Wirte_PCplus4_OR_brancheJal_w),
 	.PC_Value(pc_w)
 );
 
@@ -190,11 +202,15 @@ ALU_UNIT
 	.ALU_Operation_i(alu_operation_w),
 	.A_i(read_data_1_w),
 	.B_i(read_data_2_or_imm_w),
-	.ALU_Result_o(alu_result_w)
+	.ALU_Result_o(alu_result_w),
+	.Zero_o(Zero_O_w)
 );
 
 
 
+//******************************************************************/
+             //*********AGREGADO*****************/
+//******************************************************************/
 
 Data_Memory 
 #(	
@@ -224,6 +240,42 @@ MUX_data_OR_mem_FOR_Wregister
 	
 	.Mux_Output_o(Wirte_data_Rdat_or_Datmem_w)
 
+);
+
+
+Adder_32_Bits
+#(
+	.NBits(32)
+)
+Adder_PC_PLUS_INMM
+(
+	.Data0(pc_w),
+	.Data1(inmmediate_data_w),
+	
+	.Result(ADDER_PC_PLUS_INMM_w)
+);
+
+
+Multiplexer_2_to_1
+#(
+	.NBits(32)
+)
+MUX_JAL_OR_BRANCH
+(
+	.Selector_i(AND_OUT_w),
+	.Mux_Data_0_i(pc_plus_4_w),
+	.Mux_Data_1_i(ADDER_PC_PLUS_INMM_w),
+	
+	.Mux_Output_o(Wirte_PCplus4_OR_brancheJal_w)
+
+);
+
+ANDGate
+Branch
+(
+	.A(Branch_w),
+	.B(Zero_O_w),
+	.C(AND_OUT_w)
 );
 
 endmodule
