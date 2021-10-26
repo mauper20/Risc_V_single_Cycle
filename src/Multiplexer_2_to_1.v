@@ -14,7 +14,7 @@ module Multiplexer_2_to_1
 #(
 	parameter NBits = 32
 )
-(
+(   
 	input Selector_i,
 	input [NBits-1:0] Mux_Data_0_i,
 	input [NBits-1:0] Mux_Data_1_i,
