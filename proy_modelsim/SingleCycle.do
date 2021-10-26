@@ -39,11 +39,14 @@ add wave -noupdate -expand -group t3 -radix unsigned /RISC_V_Single_Cycle_TB/DUV
 add wave -noupdate -expand -group t4 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t4/enable
 add wave -noupdate -expand -group t4 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t4/DataInput
 add wave -noupdate -expand -group t4 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t4/DataOutput
-add wave -noupdate -group t6 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t6/enable
-add wave -noupdate -group t6 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t6/DataInput
-add wave -noupdate -group t6 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t6/DataOutput
+add wave -noupdate -expand -group t5 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t5/enable
+add wave -noupdate -expand -group t5 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t5/DataInput
+add wave -noupdate -expand -group t5 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t5/DataOutput
+add wave -noupdate -expand -group t6 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t6/enable
+add wave -noupdate -expand -group t6 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t6/DataInput
+add wave -noupdate -expand -group t6 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t6/DataOutput
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 2} {66 ps} 0}
+WaveRestoreCursors {{Cursor 2} {2 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 153
 configure wave -valuecolwidth 116
@@ -59,4 +62,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {58 ps} {72 ps}
+WaveRestoreZoom {0 ps} {6 ps}
