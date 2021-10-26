@@ -37,10 +37,13 @@ localparam I_Type_ORI      =7'bx_001_110;
 localparam I_Type_ANDI     =7'bx_001_111;
 localparam I_Type_SLLI     =7'b0_001_001;
 localparam I_Type_SRLI     =7'b0_001_101;
-localparam I_Mem_Type_LW   =7'b0_100_010;
-localparam S_Mem_Type_SW   =7'b0_011_010;
+localparam I_Mem_Type_LW   =7'bx_100_010;
+localparam S_Mem_Type_SW   =7'bx_011_010;
 localparam U_Type_LUI      =7'bx_010_XXX;
 localparam I_Type_JALR     =7'bx_110_000;
+localparam B_Type_beq		=7'bx_111_000;
+localparam B_Type_bne      =7'bx_111_001;
+localparam B_Type_blt      =7'bx_111_100;
 
 reg [3:0] alu_control_values;
 wire [6:0] selector;
@@ -66,7 +69,9 @@ always@(selector)begin
 			S_Mem_Type_SW: alu_control_values= 4'b11_00;
 			U_Type_LUI:    alu_control_values= 4'b10_01;
 			I_Type_JALR:   alu_control_values= 4'b10_10;
-		
+			B_Type_beq:    alu_control_values= 4'b10_11;
+			B_Type_bne:    alu_control_values= 4'b11_10;
+			B_Type_blt:    alu_control_values= 4'b11_11;
 
 		default: 
 			alu_control_values = 4'b00_00;
@@ -75,7 +80,6 @@ end
 
 
 assign ALU_Operation_o = alu_control_values;
-
 
 
 endmodule
