@@ -18,6 +18,7 @@ module Control
 	
 	output Branch_o,
    output Jal_o,
+	output JalR_o,
 	output Mem_Read_o,
 	output Mem_to_Reg_o,
 	output Mem_Write_o,
@@ -32,19 +33,23 @@ localparam U_Type_LUI       =7'h37;
 localparam S_Type_SW        =7'h23;
 localparam I_Mem_Type_LW    =7'h03;
 localparam J_Type_JAL       =7'h6F;
+localparam I_Type_JALR      =7'h67;
 localparam B_Type           =7'h63;
 
-reg [9:0] control_values;
+
+reg [10:0] control_values;
 
 always@(OP_i) begin
-	case(OP_i)//                          10 876_54_3_210
+	case(OP_i)//                         11 10 876_54_3_210
 	
-		R_Type:         control_values= 10'b0_001_00_0_000;
-		I_Type_LOGIC:   control_values= 10'b0_001_00_1_001;
-		U_Type_LUI:   	 control_values= 10'b0_001_00_1_010;	
-		S_Type_SW:   	 control_values= 10'b0_001_01_1_011;
-	   I_Mem_Type_LW:  control_values= 10'b0_011_10_1_100;
-		J_Type_JAL:		 control_values= 10'b1_001_00_X_101;
+		R_Type:         control_values= 11'b0_0_001_00_0_000;
+		I_Type_LOGIC:   control_values= 11'b0_0_001_00_1_001;
+		U_Type_LUI:   	 control_values= 11'b0_0_001_00_1_010;	
+		S_Type_SW:   	 control_values= 11'b0_0_001_01_1_011;
+	   I_Mem_Type_LW:  control_values= 11'b0_0_011_10_1_100;
+		J_Type_JAL:		 control_values= 11'b0_1_001_00_X_101;
+		I_Type_JALR:	 control_values= 11'b1_0_000_00_1_110;
+		
 		
 
 		default:
@@ -52,8 +57,9 @@ always@(OP_i) begin
 		endcase
 end	
 
+assign JalR_o        = control_values[10];
 
-assign Jal_o          = control_values[9];
+assign Jal_o        = control_values[9];
 
 assign Branch_o     = control_values[8];
 
