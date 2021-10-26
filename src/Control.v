@@ -49,11 +49,11 @@ always@(OP_i) begin
 	   I_Mem_Type_LW:  control_values= 11'b0_0_011_10_1_100;
 		J_Type_JAL:		 control_values= 11'b0_1_001_00_X_101;
 		I_Type_JALR:	 control_values= 11'b1_0_000_00_1_110;
-		
+		B_Type:         control_values= 11'b0_0_100_00_0_111;
 		
 
 		default:
-			             control_values= 9'b000_00_000;
+			             control_values= 11'b0_0_000_00_0_000;
 		endcase
 end	
 
