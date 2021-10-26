@@ -7,7 +7,11 @@ add wave -noupdate -expand -group ALU /RISC_V_Single_Cycle_TB/DUV/ALU_UNIT/A_i
 add wave -noupdate -expand -group ALU /RISC_V_Single_Cycle_TB/DUV/ALU_UNIT/B_i
 add wave -noupdate -expand -group ALU /RISC_V_Single_Cycle_TB/DUV/ALU_UNIT/Zero_o
 add wave -noupdate -expand -group ALU -itemcolor Red -radix decimal /RISC_V_Single_Cycle_TB/DUV/ALU_UNIT/ALU_Result_o
-add wave -noupdate -expand -group {CONTROL UNIT} /RISC_V_Single_Cycle_TB/DUV/CONTROL_UNIT/OP_i
+add wave -noupdate -expand -group {PROGRAM COUNTER} -radix unsigned /RISC_V_Single_Cycle_TB/DUV/PROGRAM_COUNTER/Next_PC
+add wave -noupdate -expand -group {PROGRAM COUNTER} -radix unsigned /RISC_V_Single_Cycle_TB/DUV/PROGRAM_COUNTER/PC_Value
+add wave -noupdate -expand -group {CONTROL UNIT} -radix hexadecimal /RISC_V_Single_Cycle_TB/DUV/CONTROL_UNIT/OP_i
+add wave -noupdate -expand -group {CONTROL UNIT} /RISC_V_Single_Cycle_TB/DUV/CONTROL_UNIT/JalR_o
+add wave -noupdate -expand -group {CONTROL UNIT} /RISC_V_Single_Cycle_TB/DUV/CONTROL_UNIT/Jal_o
 add wave -noupdate -expand -group {CONTROL UNIT} /RISC_V_Single_Cycle_TB/DUV/CONTROL_UNIT/Branch_o
 add wave -noupdate -expand -group {CONTROL UNIT} /RISC_V_Single_Cycle_TB/DUV/CONTROL_UNIT/Mem_Read_o
 add wave -noupdate -expand -group {CONTROL UNIT} /RISC_V_Single_Cycle_TB/DUV/CONTROL_UNIT/Mem_to_Reg_o
@@ -16,6 +20,9 @@ add wave -noupdate -expand -group {CONTROL UNIT} -color Magenta /RISC_V_Single_C
 add wave -noupdate -expand -group {CONTROL UNIT} -color Orange /RISC_V_Single_Cycle_TB/DUV/CONTROL_UNIT/Reg_Write_o
 add wave -noupdate -expand -group {PROGRAM MEM} -radix unsigned /RISC_V_Single_Cycle_TB/DUV/PROGRAM_MEMORY/Address_i
 add wave -noupdate -radix hexadecimal /RISC_V_Single_Cycle_TB/DUV/PROGRAM_MEMORY/Instruction_o
+add wave -noupdate -expand -group ra /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_ra/enable
+add wave -noupdate -expand -group ra -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_ra/DataInput
+add wave -noupdate -expand -group ra -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_ra/DataOutput
 add wave -noupdate -expand -group t1 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t1/DataInput
 add wave -noupdate -expand -group t1 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t1/DataOutput
 add wave -noupdate -expand -group t2 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t2/enable
@@ -36,7 +43,7 @@ add wave -noupdate -group t6 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Regi
 add wave -noupdate -group t6 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t6/DataInput
 add wave -noupdate -group t6 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t6/DataOutput
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 2} {12 ps} 0}
+WaveRestoreCursors {{Cursor 2} {66 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 153
 configure wave -valuecolwidth 116
@@ -52,4 +59,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {9 ps} {23 ps}
+WaveRestoreZoom {58 ps} {72 ps}
