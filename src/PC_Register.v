@@ -27,7 +27,7 @@ module PC_Register
 
 always@(negedge reset or posedge clk) begin
 	if(reset==0)
-		PC_Value <= 0;
+		PC_Value <= 4194304;
 	else	
 		PC_Value<= Next_PC;
 end
