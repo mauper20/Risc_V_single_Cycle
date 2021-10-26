@@ -35,9 +35,12 @@ localparam LUI = 4'b10_01;
 localparam LW  = 4'b11_01;
 localparam SW  = 4'b11_00;
 localparam JALR= 4'b10_10;
+localparam BEQ = 4'b10_11;
+localparam BNE = 4'b11_10;
+localparam BLT = 4'b11_11;
 
    
-   always @ (A_i or B_i or ALU_Operation_i)
+always @ (A_i or B_i or ALU_Operation_i)
      begin
 		case (ALU_Operation_i)
 		ADD: 
@@ -75,6 +78,15 @@ localparam JALR= 4'b10_10;
 			
 		JALR: //jalr
 		   ALU_Result_o= A_i + B_i;
+		
+		BEQ: //beq
+			ALU_Result_o = (A_i == B_i) ? 1'b0 : 1'b1;
+			
+		BNE: //bne
+			ALU_Result_o = (A_i != B_i) ? 1'b0 : 1'b1;
+			
+		BLT: //blt
+			ALU_Result_o = (A_i < B_i) ?  1'b0 : 1'b1;
 			
 		default:
 			ALU_Result_o = 0;	
