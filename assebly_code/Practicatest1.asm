@@ -17,4 +17,14 @@ prueba:
  	sub  t2, t0,  t1
  	jalr zero, ra, 0
  end:
+ 	addi t3, zero, 5
+ 	addi t4, zero, 3
+ 	addi t5, zero, 1
+ end2:
+ 	sub t3, t3,  t5
+ 	#bne t4, t3, end2
+ 	#sub t3, t3,  t5
+ 	blt  t4, t3, end2
+ 	addi t3, zero, 20
+ 	
  	
