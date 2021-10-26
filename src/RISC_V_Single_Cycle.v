@@ -38,6 +38,7 @@ module RISC_V_Single_Cycle
 
 /**Control**/
 wire jalsignal_w;
+wire JalRsignal_w;
 wire Branch_w;
 wire alu_src_w;
 wire reg_write_w;
@@ -88,6 +89,8 @@ wire [31:0] Wirte_PCplus4_OR_brancheJal_w;
 wire [31:0] ADDER_PC_PLUS_INMM_w;
 /**Multiplexer MUX_Pcplus4toRegis_OR_dataAluOrMem**/
 wire [31:0] Wirte_Pcplus4toRegis_OR_dataAluOrMem_w;
+/**Multiplexer MUX_JALR_OR_brancheJalORPCplus4_w**/
+wire [31:0]Wirte_JALR_OR_brancheJalORPCplus4_w;
 //******************************************************************/
 //******************************************************************/
 //******************************************************************/
@@ -99,6 +102,7 @@ CONTROL_UNIT
 	/****/
 	.OP_i(instruction_bus_w[6:0]),
 	/** outputus**/
+	.JalR_o(JalRsignal_w),
 	.Jal_o(jalsignal_w),
 	.Branch_o(Branch_w),
 	.ALU_Op_o(alu_op_w),
@@ -115,7 +119,7 @@ PROGRAM_COUNTER
 (
 	.clk(clk),
 	.reset(reset),
-	.Next_PC(Wirte_PCplus4_OR_brancheJal_w),
+	.Next_PC(Wirte_JALR_OR_brancheJalORPCplus4_w),
 	.PC_Value(pc_w)
 );
 
@@ -307,6 +311,21 @@ Branch_or_Jal
 	.A(Branch_w),
 	.B(jalsignal_w),
 	.C(OR_OUT_w)
+);
+
+
+Multiplexer_2_to_1
+#(
+	.NBits(32)
+)
+MUX_JALR_OR_BRANCHJalORPCplus4
+(
+	.Selector_i(JalRsignal_w),
+	.Mux_Data_0_i(Wirte_PCplus4_OR_brancheJal_w),
+	.Mux_Data_1_i(alu_result_w),
+	
+	.Mux_Output_o(Wirte_JALR_OR_brancheJalORPCplus4_w)
+
 );
 
 endmodule
