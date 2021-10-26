@@ -24,11 +24,13 @@ module Immediate_Unit
 always@(op_i,Instruction_bus_i) begin
 
 	if(op_i == 7'h13)
-				Immediate_o = {{20{Instruction_bus_i[31]}},Instruction_bus_i[31:20]};// I format		
+				Immediate_o = {{20{Instruction_bus_i[31]}},Instruction_bus_i[31:20]};// I format	
+	else 	if(op_i == 7'h67)
+				Immediate_o = {{20{Instruction_bus_i[31]}},Instruction_bus_i[31:20]};// I_jalr format		
 	else if(op_i == 7'h37)
 				Immediate_o = {{12{Instruction_bus_i[31]}},Instruction_bus_i[31:12]};// U format
 	else if(op_i == 7'h23)
-				Immediate_o = {{20{Instruction_bus_i[31]}},Instruction_bus_i[31:25],Instruction_bus_i[11:7]};// s format	
+				Immediate_o = {{20{Instruction_bus_i[31]}},Instruction_bus_i[31:25],Instruction_bus_i[11:7]};// S format	
 	else if(op_i == 7'h63)
 				Immediate_o = {{19{Instruction_bus_i[31]}},Instruction_bus_i[31],Instruction_bus_i[7],Instruction_bus_i[30:25],Instruction_bus_i[11:8],1'b0};// B format			
 	else if(op_i == 7'h6F)
