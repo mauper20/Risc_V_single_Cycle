@@ -37,6 +37,7 @@ module RISC_V_Single_Cycle
 /* Signals to connect modules*/
 
 /**Control**/
+wire jalsignal_w;
 wire Branch_w;
 wire alu_src_w;
 wire reg_write_w;
@@ -73,8 +74,10 @@ wire [31:0] instruction_bus_w;
 //**************cables agregados**************/
 //******************************************************************/
 
-/**ADDER_PC_PLUS_INMM**/
+/**andWire**/
 wire AND_OUT_w;
+/**ORWire**/
+wire OR_OUT_w;
 /**DataMemory**/
 wire [31:0] Read_data_mem_w;
 /**Multiplexer MUX_data_OR_mem_FOR_Wregister**/
@@ -83,6 +86,8 @@ wire [31:0] Wirte_data_Rdat_or_Datmem_w;
 wire [31:0] Wirte_PCplus4_OR_brancheJal_w;
 /**ADDER_PC_PLUS_INMM**/
 wire [31:0] ADDER_PC_PLUS_INMM_w;
+/**Multiplexer MUX_Pcplus4toRegis_OR_dataAluOrMem**/
+wire [31:0] Wirte_Pcplus4toRegis_OR_dataAluOrMem_w;
 //******************************************************************/
 //******************************************************************/
 //******************************************************************/
@@ -94,6 +99,7 @@ CONTROL_UNIT
 	/****/
 	.OP_i(instruction_bus_w[6:0]),
 	/** outputus**/
+	.Jal_o(jalsignal_w),
 	.Branch_o(Branch_w),
 	.ALU_Op_o(alu_op_w),
 	.ALU_Src_o(alu_src_w),
@@ -152,7 +158,7 @@ REGISTER_FILE_UNIT
 	.Write_Register_i(instruction_bus_w[11:7]),
 	.Read_Register_1_i(instruction_bus_w[19:15]),
 	.Read_Register_2_i(instruction_bus_w[24:20]),
-	.Write_Data_i(Wirte_data_Rdat_or_Datmem_w),
+	.Write_Data_i(Wirte_Pcplus4toRegis_OR_dataAluOrMem_w),
 	.Read_Data_1_o(read_data_1_w),
 	.Read_Data_2_o(read_data_2_w)
 
@@ -243,6 +249,22 @@ MUX_data_OR_mem_FOR_Wregister
 );
 
 
+
+Multiplexer_2_to_1
+#(
+	.NBits(32)
+)
+MUX_Pcplus4toRegis_OR_dataAluOrMem
+(
+	.Selector_i(jalsignal_w),
+	.Mux_Data_0_i(Wirte_data_Rdat_or_Datmem_w),
+	.Mux_Data_1_i(pc_plus_4_w),
+	
+	.Mux_Output_o(Wirte_Pcplus4toRegis_OR_dataAluOrMem_w)
+);
+
+
+
 Adder_32_Bits
 #(
 	.NBits(32)
@@ -260,7 +282,7 @@ Multiplexer_2_to_1
 #(
 	.NBits(32)
 )
-MUX_JAL_OR_BRANCH
+MUX_PCplus4_OR_BRANCHJal
 (
 	.Selector_i(AND_OUT_w),
 	.Mux_Data_0_i(pc_plus_4_w),
@@ -271,11 +293,20 @@ MUX_JAL_OR_BRANCH
 );
 
 ANDGate
-Branch
+BranchJAL
 (
-	.A(Branch_w),
+	.A(OR_OUT_w),
 	.B(Zero_O_w),
 	.C(AND_OUT_w)
+);
+
+
+ORGate
+Branch_or_Jal
+(
+	.A(Branch_w),
+	.B(jalsignal_w),
+	.C(OR_OUT_w)
 );
 
 endmodule
