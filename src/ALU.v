@@ -34,6 +34,7 @@ localparam SRL = 4'b01_11;
 localparam LUI = 4'b10_01;
 localparam LW  = 4'b11_01;
 localparam SW  = 4'b11_00;
+localparam JALR= 4'b10_10;
 
    
    always @ (A_i or B_i or ALU_Operation_i)
@@ -71,6 +72,9 @@ localparam SW  = 4'b11_00;
 			
 	   LW:  // LW
 			ALU_Result_o = A_i + B_i;
+			
+		JALR: //jalr
+		   ALU_Result_o= A_i + B_i;
 			
 		default:
 			ALU_Result_o = 0;	
