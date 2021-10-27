@@ -74,7 +74,7 @@ always@(selector)begin
 			B_Type_blt:    alu_control_values= 4'b11_11;
 
 		default: 
-			alu_control_values = 4'b00_00;
+			alu_control_values = 4'b01_10;
 	endcase
 end
 
