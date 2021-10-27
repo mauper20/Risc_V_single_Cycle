@@ -11,7 +11,8 @@
 ******************************************************************/
 module Register
 #(
-	parameter N = 32
+	parameter N = 32,
+	parameter initvalue = 0
 )
 (
 	input clk,
@@ -25,7 +26,7 @@ module Register
 
 always@(negedge reset or posedge clk) begin
 	if(reset==0)
-		DataOutput <= 0;
+		DataOutput <= initvalue;
 	else	
 		if(enable==1)
 			DataOutput<=DataInput;
