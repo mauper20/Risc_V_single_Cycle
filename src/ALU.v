@@ -71,10 +71,10 @@ always @ (A_i or B_i or ALU_Operation_i)
 		   ALU_Result_o= A_i << B_i;  
 			
 		SW:  // sw
-			ALU_Result_o = A_i + B_i;
+			ALU_Result_o = (A_i + B_i)-'h10010000;
 			
 	   LW:  // LW
-			ALU_Result_o = A_i + B_i;
+			ALU_Result_o = (A_i + B_i)-'h10010000;
 			
 		JALR: //jalr
 		   ALU_Result_o= A_i + B_i;
