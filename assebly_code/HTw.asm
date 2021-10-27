@@ -5,8 +5,8 @@
 .data
 .text
 	lui s2, 0x10010    # origen tower
-	ori s3, s2, 0x40  #  aux tower
-	ori s4, s2, 0x80 #  destiny tower
+	ori s3, s2, 0x20  #  aux tower
+	ori s4, s2, 0x40 #  destiny tower
 main:
 	addi s0, zero, 3  # n dicos 
 	add  t2, zero, s0 # t2 guarda n discos para usar depue 
