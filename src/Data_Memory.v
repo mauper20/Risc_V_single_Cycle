@@ -12,7 +12,7 @@
 
 module Data_Memory 
 #(	parameter DATA_WIDTH = 8,
-	parameter MEMORY_DEPTH = 1024
+	parameter MEMORY_DEPTH = 256
 
 )
 (
