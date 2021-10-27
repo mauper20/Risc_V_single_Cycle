@@ -47,7 +47,7 @@ always@(OP_i) begin
 		U_Type_LUI:   	 control_values= 11'b0_0_001_00_1_010;	
 		S_Type_SW:   	 control_values= 11'b0_0_001_01_1_011;
 	   I_Mem_Type_LW:  control_values= 11'b0_0_011_10_1_100;
-		J_Type_JAL:		 control_values= 11'b0_1_001_00_X_101;
+		J_Type_JAL:		 control_values= 11'b0_1_001_00_0_101;
 		I_Type_JALR:	 control_values= 11'b1_0_000_00_1_110;
 		B_Type:         control_values= 11'b0_0_100_00_0_111;
 		
