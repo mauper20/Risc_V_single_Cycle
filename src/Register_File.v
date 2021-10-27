@@ -75,6 +75,9 @@ Register_ra
 
 	
 Register
+#(
+	.initvalue('h1001_03FC)
+)
 Register_sp
 (
 	.clk(clk),
