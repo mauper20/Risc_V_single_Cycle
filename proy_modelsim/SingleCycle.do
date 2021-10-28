@@ -92,40 +92,33 @@ add wave -noupdate -group t4 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTE
 add wave -noupdate -group t5 /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t5/enable
 add wave -noupdate -group t5 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t5/DataInput
 add wave -noupdate -group t5 -radix unsigned /RISC_V_Single_Cycle_TB/DUV/REGISTER_FILE_UNIT/Register_t5/DataOutput
-add wave -noupdate -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[29]}
-add wave -noupdate -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[28]}
-add wave -noupdate -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[27]}
-add wave -noupdate -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[26]}
-add wave -noupdate -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[25]}
-add wave -noupdate -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[24]}
-add wave -noupdate -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[23]}
-add wave -noupdate -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[22]}
-add wave -noupdate -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[21]}
-add wave -noupdate -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[20]}
-add wave -noupdate -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[19]}
-add wave -noupdate -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[18]}
-add wave -noupdate -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[17]}
-add wave -noupdate -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[16]}
-add wave -noupdate -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[15]}
-add wave -noupdate -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[14]}
-add wave -noupdate -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[13]}
-add wave -noupdate -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[12]}
-add wave -noupdate -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[11]}
-add wave -noupdate -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[10]}
-add wave -noupdate -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[9]}
-add wave -noupdate -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[8]}
-add wave -noupdate -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[7]}
-add wave -noupdate -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[6]}
-add wave -noupdate -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[5]}
-add wave -noupdate -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[4]}
-add wave -noupdate -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[3]}
-add wave -noupdate -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[2]}
-add wave -noupdate -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[1]}
-add wave -noupdate -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[0]}
-add wave -noupdate -childformat {{{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[254]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[253]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[79]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[78]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[2]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[1]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[0]} -radix hexadecimal}} -expand -subitemconfig {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[254]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[253]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[79]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[78]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[2]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[1]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[0]} {-height 15 -radix hexadecimal}} /RISC_V_Single_Cycle_TB/DUV/Data_memory/ram
+add wave -noupdate -expand -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[23]}
+add wave -noupdate -expand -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[22]}
+add wave -noupdate -expand -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[21]}
+add wave -noupdate -expand -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[20]}
+add wave -noupdate -expand -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[19]}
+add wave -noupdate -expand -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[18]}
+add wave -noupdate -expand -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[17]}
+add wave -noupdate -expand -group Tower_C -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[16]}
+add wave -noupdate -expand -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[15]}
+add wave -noupdate -expand -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[14]}
+add wave -noupdate -expand -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[13]}
+add wave -noupdate -expand -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[12]}
+add wave -noupdate -expand -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[11]}
+add wave -noupdate -expand -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[10]}
+add wave -noupdate -expand -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[9]}
+add wave -noupdate -expand -group Tower_B -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[8]}
+add wave -noupdate -expand -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[6]}
+add wave -noupdate -expand -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[5]}
+add wave -noupdate -expand -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[4]}
+add wave -noupdate -expand -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[3]}
+add wave -noupdate -expand -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[2]}
+add wave -noupdate -expand -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[1]}
+add wave -noupdate -expand -group Tower_A -radix unsigned {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[0]}
+add wave -noupdate -childformat {{{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[254]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[253]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[79]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[78]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[18]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[17]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[16]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[15]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[14]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[13]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[12]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[11]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[10]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[9]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[8]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[7]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[6]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[5]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[4]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[3]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[2]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[1]} -radix hexadecimal} {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[0]} -radix hexadecimal}} -subitemconfig {{/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[254]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[253]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[79]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[78]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[18]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[17]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[16]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[15]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[14]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[13]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[12]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[11]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[10]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[9]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[8]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[7]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[6]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[5]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[4]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[3]} {-radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[2]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[1]} {-height 15 -radix hexadecimal} {/RISC_V_Single_Cycle_TB/DUV/Data_memory/ram[0]} {-height 15 -radix hexadecimal}} /RISC_V_Single_Cycle_TB/DUV/Data_memory/ram
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 2} {102 ps} 1} {{Cursor 2} {168 ps} 0}
-quietly wave cursor active 2
+WaveRestoreCursors {{Cursor 2} {11 ps} 0}
+quietly wave cursor active 1
 configure wave -namecolwidth 163
 configure wave -valuecolwidth 116
 configure wave -justifyvalue left
@@ -140,4 +133,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {163 ps} {187 ps}
+WaveRestoreZoom {0 ps} {41 ps}
