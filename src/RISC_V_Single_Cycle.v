@@ -26,8 +26,8 @@ module RISC_V_Single_Cycle
 (
 	// Inputs
 	input clk,
-	input reset
-
+	input reset,
+	output [31:0]forclkrate
 );
 //******************************************************************/
 //******************************************************************/
@@ -74,7 +74,6 @@ wire [31:0] instruction_bus_w;
 //******************************************************************/
 //**************cables agregados**************/
 //******************************************************************/
-
 /**andWire**/
 wire AND_OUT_w;
 /**ORWire**/
@@ -327,6 +326,9 @@ MUX_JALR_OR_BRANCHJalORPCplus4
 	.Mux_Output_o(Wirte_JALR_OR_brancheJalORPCplus4_w)
 
 );
+
+
+assign forclkrate= Wirte_JALR_OR_brancheJalORPCplus4_w;
 
 endmodule
 
