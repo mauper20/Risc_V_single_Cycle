@@ -26,7 +26,7 @@ module Control
 	output Reg_Write_o,
 	output [2:0]ALU_Op_o
 );
-
+// se agregaron los opcode de cada tipo de instruccion correspondiente
 localparam R_Type           =7'h33;
 localparam I_Type_LOGIC     =7'h13;
 localparam U_Type_LUI       =7'h37;
@@ -50,12 +50,13 @@ always@(OP_i) begin
 		J_Type_JAL:		 control_values= 11'b0_1_001_00_0_101;
 		I_Type_JALR:	 control_values= 11'b1_0_000_00_1_110;
 		B_Type:         control_values= 11'b0_0_100_00_0_111;
-		
+		//se ajustaron las señales necesarias correspondeintes a lo que cada intruccion o tipo de intstruccion hace
 
 		default:
 			             control_values= 11'b0_0_000_00_0_000;
 		endcase
 end	
+//se agregaron 2 señales mas, jalr y jal
 
 assign JalR_o        = control_values[10];
 
