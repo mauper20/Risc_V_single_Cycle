@@ -7,8 +7,12 @@
 *	1.0
 * Author:
 *	Dr. José Luis Pizano Escalante
+Editado para efectos de practica por:
+*	MAuricio Peralta 
+*	Adrian Guevara
 * email:
 *	luispizano@iteso.mx
+*	mperalta.osorio@iteso.mx
 * Date:
 *	16/08/2021
 ******************************************************************/
@@ -23,7 +27,7 @@ module ALU_Control
 
 );
 
-
+//se agregaron para distinguir los tipos de intrucciones que se requerian
 localparam R_Type_ADD      =7'b0_000_000;
 localparam R_Type_SUB      =7'b1_000_000;
 localparam R_Type_XOR      =7'b0_000_100;
@@ -52,6 +56,7 @@ assign selector = {funct7_i, ALU_Op_i, funct3_i};
 
 always@(selector)begin
 	casex(selector)
+	// aqui se determinaron valores de control para que la alu supiera que instruccion ejecutar
 			R_Type_ADD:    alu_control_values= 4'b00_00;
 			R_Type_SUB:    alu_control_values= 4'b00_01;
 			R_Type_XOR:    alu_control_values= 4'b00_10;
@@ -74,7 +79,7 @@ always@(selector)begin
 			B_Type_blt:    alu_control_values= 4'b11_11;
 
 		default: 
-			alu_control_values = 4'b01_10;
+			alu_control_values = 4'b01_10; // por default que se cambio de 4b'0000 debido a que ya exisitia y causaba problemas en el jal
 	endcase
 end
 
