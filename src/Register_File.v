@@ -76,7 +76,7 @@ Register_ra
 	
 Register
 #(
-	.initvalue('h1001_03FC)
+	.initvalue('h1001_03FC) // se modifico donde iniciaba el sp para guardar los datos de manera correcta en la aprte alta de la memoria
 )
 Register_sp
 (
