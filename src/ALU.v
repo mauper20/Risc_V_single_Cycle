@@ -23,14 +23,17 @@ module ALU
 	output reg [31:0] ALU_Result_o
 );
 
-localparam ADD = 4'b00_00;
+/* se establecieron los valores para que se reconociera el tipo de instrccion que venia de la alucontrol 
+y seleccionarl el caso correcto, algunas intrucciones parecen no estar pero hacen lo mismo que otros 
+por lo que para ahorrar lineas se vincularon*/
+localparam ADD = 4'b00_00;// add y addi
 localparam SUB = 4'b00_01;
-localparam XOR = 4'b00_10;
+localparam XOR = 4'b00_10;//xor, xori
 localparam OR  = 4'b00_11;
 localparam ORI = 4'b10_00;
-localparam AND = 4'b01_00;
-localparam SLL = 4'b01_01;
-localparam SRL = 4'b01_11;
+localparam AND = 4'b01_00;//and y andi
+localparam SLL = 4'b01_01;//sll y slli
+localparam SRL = 4'b01_11;//srl y srli
 localparam LUI = 4'b10_01;
 localparam LW  = 4'b11_01;
 localparam SW  = 4'b11_00;
@@ -43,13 +46,13 @@ localparam BLT = 4'b11_11;
 always @ (A_i or B_i or ALU_Operation_i)
      begin
 		case (ALU_Operation_i)
-		ADD: 
+		ADD: // add y addi
 		   ALU_Result_o= A_i + B_i;
 
 		SUB: // sub 
 	      ALU_Result_o = A_i - B_i;
 			
-		AND: // and
+		AND: // and y andi
 			ALU_Result_o = A_i & B_i;
 			
 		OR:  // or  
@@ -58,16 +61,16 @@ always @ (A_i or B_i or ALU_Operation_i)
 		ORI:  // ori
 			ALU_Result_o= A_i | B_i;
 			
-		XOR: // nor
+		XOR: //xor, xori
 			ALU_Result_o = (A_i^B_i);
 			
 		LUI: // lui
 			ALU_Result_o = B_i<<12; 
 			
-		SRL: // srl
+		SRL: //srl y srli
 		   ALU_Result_o= A_i >> B_i; 
 			
-		SLL: // sll
+		SLL: //sll y slli
 		   ALU_Result_o= A_i << B_i;  
 			
 		SW:  // sw
