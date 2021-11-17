@@ -10,67 +10,67 @@ z2
 cModel Technology
 dD:/Quartus
 vAdder_32_Bits
-Z0 !s110 1635471701
+!s110 1637192233
 !i10b 1
 !s100 ]]1J@==K`8kPSg5PUDi8W3
-Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
 I_A=cR6oFCHcd?=zg;g:3f2
-Z2 VDg1SIo80bB@j0V0VzS_@n1
-Z3 dC:/ACP_proj/Risc_V_single_Cycle/proy_modelsim
-Z4 w1632503520
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/ACP_proj/Risc_V_single_Cycle/proy_modelsim
+Z3 w1632503520
 8C:/ACP_proj/Risc_V_single_Cycle/src/Adder_32_Bits.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/Adder_32_Bits.v
-!i122 987
+!i122 1151
 L0 13 16
-Z5 OV;L;2020.1;71
+Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1635471700.000000
+!s108 1637192233.000000
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/Adder_32_Bits.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Adder_32_Bits.v|
 !i113 1
-Z6 o-work work
-Z7 tCvgOpt 0
+Z5 o-work work
+Z6 tCvgOpt 0
 n@adder_32_@bits
 vALU
-R0
+Z7 !s110 1637192234
 !i10b 1
 !s100 GC]7[WHBG1FR<VSA64_@_3
-R1
+R0
 ICgI7f]603:F4CclUo0_X>1
+R1
 R2
-R3
 w1635470288
 8C:/ACP_proj/Risc_V_single_Cycle/src/ALU.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/ALU.v
-!i122 988
+!i122 1152
 L0 17 85
-R5
+R4
 r1
 !s85 0
 31
-Z8 !s108 1635471701.000000
+Z8 !s108 1637192234.000000
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/ALU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/ALU.v|
 !i113 1
+R5
 R6
-R7
 n@a@l@u
 vALU_Control
-R0
+R7
 !i10b 1
 !s100 K;2ZOae`QmI;jU2l:[g[>3
-R1
+R0
 INnMea:P?U<>WKVm[aOKRo3
+R1
 R2
-R3
 w1635470292
 8C:/ACP_proj/Risc_V_single_Cycle/src/ALU_Control.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/ALU_Control.v
-!i122 989
+!i122 1153
 L0 19 72
-R5
+R4
 r1
 !s85 0
 31
@@ -78,119 +78,119 @@ R8
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/ALU_Control.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/ALU_Control.v|
 !i113 1
+R5
 R6
-R7
 n@a@l@u_@control
 vANDGate
-Z9 !s110 1635471708
+Z9 !s110 1637192242
 !i10b 1
 !s100 =gezo^mBAdD3MgzHFhS9a2
-R1
+R0
 Ik5f1F=]MbzBIE5LQoVJFc1
+R1
 R2
-R3
 w1635208616
 8C:/ACP_proj/Risc_V_single_Cycle/src/ANDmodul.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/ANDmodul.v
-!i122 1002
+!i122 1166
 L0 14 11
-R5
+R4
 r1
 !s85 0
 31
-Z10 !s108 1635471707.000000
+Z10 !s108 1637192241.000000
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/ANDmodul.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/ANDmodul.v|
 !i113 1
+R5
 R6
-R7
 n@a@n@d@gate
 vControl
-Z11 !s110 1635471702
+Z11 !s110 1637192235
 !i10b 1
 !s100 N>h8Jk:CH9ZXEO92DlP013
-R1
+R0
 Ih?H<D8Vb5LiJmN=>``jjE3
+R1
 R2
-R3
 w1635470464
 8C:/ACP_proj/Risc_V_single_Cycle/src/Control.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/Control.v
-!i122 990
+!i122 1154
 L0 14 66
-R5
+R4
 r1
 !s85 0
 31
-R8
+Z12 !s108 1637192235.000000
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/Control.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Control.v|
 !i113 1
+R5
 R6
-R7
 n@control
 vData_Memory
 R11
 !i10b 1
 !s100 `GRZ1z348knR5k2QMWm]O2
-R1
+R0
 I14:aKdUdjL[Z6UkQ;b6@22
+R1
 R2
-R3
 w1635470479
 8C:/ACP_proj/Risc_V_single_Cycle/src/Data_Memory.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/Data_Memory.v
-!i122 991
+!i122 1155
 L0 13 35
-R5
+R4
 r1
 !s85 0
 31
-!s108 1635471702.000000
+R12
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/Data_Memory.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Data_Memory.v|
 !i113 1
+R5
 R6
-R7
 n@data_@memory
 vDecoder_Register_File
-Z12 !s110 1635471703
+!s110 1637192236
 !i10b 1
 !s100 McjJ;eT`CL^gKzSaHBkF33
-R1
+R0
 ITRheT8YT57T`3Za]H_bLP0
+R1
 R2
 R3
-R4
 8C:/ACP_proj/Risc_V_single_Cycle/src/Decoder_Register_File.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/Decoder_Register_File.v
-!i122 992
+!i122 1156
 L0 12 50
-R5
+R4
 r1
 !s85 0
 31
-Z13 !s108 1635471703.000000
+Z13 !s108 1637192236.000000
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/Decoder_Register_File.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Decoder_Register_File.v|
 !i113 1
+R5
 R6
-R7
 n@decoder_@register_@file
 vImmediate_Unit
-R12
+Z14 !s110 1637192237
 !i10b 1
 !s100 fjP8HPSXDVP17^Tji1=231
-R1
+R0
 IMG;z5ZG6V9ihnHM5Fk6l30
+R1
 R2
-R3
 w1635301785
 8C:/ACP_proj/Risc_V_single_Cycle/src/Immediate_Unit.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/Immediate_Unit.v
-!i122 993
+!i122 1157
 L0 14 32
-R5
+R4
 r1
 !s85 0
 31
@@ -198,47 +198,47 @@ R13
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/Immediate_Unit.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Immediate_Unit.v|
 !i113 1
+R5
 R6
-R7
 n@immediate_@unit
 vMultiplexer_2_to_1
-Z14 !s110 1635471704
+R14
 !i10b 1
 !s100 ;:eeJ;AHY7A^Ld9RHQfQ[0
-R1
+R0
 ILY2i9cDk8_z`zIkb1Md1L1
+R1
 R2
-R3
 w1635206408
 8C:/ACP_proj/Risc_V_single_Cycle/src/Multiplexer_2_to_1.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/Multiplexer_2_to_1.v
-!i122 994
+!i122 1158
 L0 13 21
-R5
+R4
 r1
 !s85 0
 31
-Z15 !s108 1635471704.000000
+Z15 !s108 1637192237.000000
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/Multiplexer_2_to_1.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Multiplexer_2_to_1.v|
 !i113 1
+R5
 R6
-R7
 n@multiplexer_2_to_1
 vMUXRegisterFile
-R14
+Z16 !s110 1637192238
 !i10b 1
 !s100 nBWFB0n:b]lZh_XigEU=]1
-R1
+R0
 I7nHSB8k5c7e[=K_M]X`5h2
+R1
 R2
 R3
-R4
 8C:/ACP_proj/Risc_V_single_Cycle/src/MUX_Register_File.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/MUX_Register_File.v
-!i122 995
+!i122 1159
 L0 2 82
-R5
+R4
 r1
 !s85 0
 31
@@ -246,167 +246,263 @@ R15
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/MUX_Register_File.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/MUX_Register_File.v|
 !i113 1
+R5
 R6
-R7
 n@m@u@x@register@file
 vORGate
 R9
 !i10b 1
 !s100 `5^l2U_<:JlYMf`cXnUTU1
-R1
+R0
 IQ0X5l=^6fAz`CcR;D=4i=1
+R1
 R2
-R3
 w1635217944
 8C:/ACP_proj/Risc_V_single_Cycle/src/ORmodul.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/ORmodul.v
-!i122 1003
+!i122 1167
 L0 13 11
-R5
+R4
 r1
 !s85 0
 31
-!s108 1635471708.000000
+Z17 !s108 1637192242.000000
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/ORmodul.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/ORmodul.v|
 !i113 1
+R5
 R6
-R7
 n@o@r@gate
 vPC_Register
-Z16 !s110 1635471705
+R16
 !i10b 1
-!s100 ac4jCof9ZUSzh=BM73GLd0
+!s100 >Y=51`cCo<]WlD_Z]1Dn]0
+R0
+Id3X6J8cg6@jVj1^oI>:DW2
 R1
-IcNoFIfF6MFCW^;8]R_mJ72
 R2
-R3
-w1635470583
+w1637030927
 8C:/ACP_proj/Risc_V_single_Cycle/src/PC_Register.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/PC_Register.v
-!i122 996
+!i122 1160
 L0 15 21
-R5
+R4
 r1
 !s85 0
 31
-Z17 !s108 1635471705.000000
+Z18 !s108 1637192238.000000
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/PC_Register.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/PC_Register.v|
 !i113 1
+R5
 R6
-R7
 n@p@c_@register
 vProgram_Memory
-R16
+Z19 !s110 1637192239
 !i10b 1
-!s100 jEnFgKd3lFXkRRaR:F]7?1
+!s100 mmEU_J:LSXEgXXnB[SEI63
+R0
+I_Wm]HFd>F7999CjXWZXT62
 R1
-ITm^cMYJDR`8Si7FeB_EeL3
 R2
-R3
-w1635315599
+w1637172857
 8C:/ACP_proj/Risc_V_single_Cycle/src/Program_Memory.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/Program_Memory.v
-!i122 997
+!i122 1161
 L0 15 28
+R4
+r1
+!s85 0
+31
+R18
+!s107 C:/ACP_proj/Risc_V_single_Cycle/src/Program_Memory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Program_Memory.v|
+!i113 1
 R5
+R6
+n@program_@memory
+vRegister
+R19
+!i10b 1
+!s100 XQAZ31h2Jl4UHO`O0IhG03
+R0
+ImGR<:n9XhNeFX=b9FG@k=0
+R1
+R2
+w1635299268
+8C:/ACP_proj/Risc_V_single_Cycle/src/Register.v
+FC:/ACP_proj/Risc_V_single_Cycle/src/Register.v
+!i122 1162
+Z20 L0 12 24
+R4
+r1
+!s85 0
+31
+Z21 !s108 1637192239.000000
+!s107 C:/ACP_proj/Risc_V_single_Cycle/src/Register.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Register.v|
+!i113 1
+R5
+R6
+n@register
+vRegister_File
+Z22 !s110 1637192240
+!i10b 1
+!s100 F[LEo:XHOGQj9dBVf=V7D1
+R0
+ILZ1HG?A370W8GM6b3j[2Y0
+R1
+R2
+w1635470662
+8C:/ACP_proj/Risc_V_single_Cycle/src/Register_File.v
+FC:/ACP_proj/Risc_V_single_Cycle/src/Register_File.v
+!i122 1163
+L0 15 516
+R4
+r1
+!s85 0
+31
+R21
+!s107 C:/ACP_proj/Risc_V_single_Cycle/src/Register_File.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Register_File.v|
+!i113 1
+R5
+R6
+n@register_@file
+vRegisterEX_MEM
+Z23 !s110 1637192243
+!i10b 1
+!s100 O32?G?M;mV4c7knl6B7_n0
+R0
+I0Wd9zZQco_1Z2obc:f]TS1
+R1
+R2
+w1637183372
+8C:/ACP_proj/Risc_V_single_Cycle/src/registerEX-Mem.v
+FC:/ACP_proj/Risc_V_single_Cycle/src/registerEX-Mem.v
+!i122 1168
+L0 12 33
+R4
 r1
 !s85 0
 31
 R17
-!s107 C:/ACP_proj/Risc_V_single_Cycle/src/Program_Memory.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Program_Memory.v|
+!s107 C:/ACP_proj/Risc_V_single_Cycle/src/registerEX-Mem.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/registerEX-Mem.v|
 !i113 1
-R6
-R7
-n@program_@memory
-vRegister
-Z18 !s110 1635471706
-!i10b 1
-!s100 XQAZ31h2Jl4UHO`O0IhG03
-R1
-ImGR<:n9XhNeFX=b9FG@k=0
-R2
-R3
-w1635299268
-8C:/ACP_proj/Risc_V_single_Cycle/src/Register.v
-FC:/ACP_proj/Risc_V_single_Cycle/src/Register.v
-!i122 998
-L0 12 24
 R5
+R6
+n@register@e@x_@m@e@m
+vRegisterID_EX
+R23
+!i10b 1
+!s100 M^QdE<akRXkVWC50ch<=W1
+R0
+IV7gY>O]WTf?Xm@;L1a6IO2
+R1
+R2
+w1637121327
+8C:/ACP_proj/Risc_V_single_Cycle/src/registerID-EX.v
+FC:/ACP_proj/Risc_V_single_Cycle/src/registerID-EX.v
+!i122 1169
+L0 12 41
+R4
 r1
 !s85 0
 31
-Z19 !s108 1635471706.000000
-!s107 C:/ACP_proj/Risc_V_single_Cycle/src/Register.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Register.v|
+Z24 !s108 1637192243.000000
+!s107 C:/ACP_proj/Risc_V_single_Cycle/src/registerID-EX.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/registerID-EX.v|
 !i113 1
-R6
-R7
-n@register
-vRegister_File
-R18
-!i10b 1
-!s100 F[LEo:XHOGQj9dBVf=V7D1
-R1
-ILZ1HG?A370W8GM6b3j[2Y0
-R2
-R3
-w1635470662
-8C:/ACP_proj/Risc_V_single_Cycle/src/Register_File.v
-FC:/ACP_proj/Risc_V_single_Cycle/src/Register_File.v
-!i122 999
-L0 15 516
 R5
+R6
+n@register@i@d_@e@x
+vRegisterIF_ID
+Z25 !s110 1637192244
+!i10b 1
+!s100 <Po1G@If;1C1zVWo4H;1C3
+R0
+I^l[iA:a:0;M_XkEJ6jIlk0
+R1
+R2
+w1637031553
+8C:/ACP_proj/Risc_V_single_Cycle/src/registerIF-ID.v
+FC:/ACP_proj/Risc_V_single_Cycle/src/registerIF-ID.v
+!i122 1170
+R20
+R4
 r1
 !s85 0
 31
-R19
-!s107 C:/ACP_proj/Risc_V_single_Cycle/src/Register_File.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/Register_File.v|
+R24
+!s107 C:/ACP_proj/Risc_V_single_Cycle/src/registerIF-ID.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/registerIF-ID.v|
 !i113 1
+R5
 R6
-R7
-n@register_@file
+n@register@i@f_@i@d
+vRegisterMEM_WB
+R25
+!i10b 1
+!s100 LDj284oC@95Pbf_gidj2Q3
+R0
+I[83kk=PE:Z<z<MTmGA@220
+R1
+R2
+w1637183499
+8C:/ACP_proj/Risc_V_single_Cycle/src/registerMem-WB.v
+FC:/ACP_proj/Risc_V_single_Cycle/src/registerMem-WB.v
+!i122 1171
+L0 12 30
+R4
+r1
+!s85 0
+31
+!s108 1637192244.000000
+!s107 C:/ACP_proj/Risc_V_single_Cycle/src/registerMem-WB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/registerMem-WB.v|
+!i113 1
+R5
+R6
+n@register@m@e@m_@w@b
 vRISC_V_Single_Cycle
-Z20 !s110 1635471707
+R22
 !i10b 1
-!s100 WV:=V];O<=nkL]JD0U`Ak2
+!s100 ?L__OeLdZ7Pf3GCI[^5ma1
+R0
+IICVIk9H93K=?An6NAX[XL2
 R1
-ImIV=oH3;PXZ_]?bO3CO<91
 R2
-R3
-w1635395010
-8C:/ACP_proj/Risc_V_single_Cycle/src/RISC_V_Single_Cycle.v
-FC:/ACP_proj/Risc_V_single_Cycle/src/RISC_V_Single_Cycle.v
-!i122 1000
-L0 20 314
-R5
+w1637183903
+8C:\ACP_proj\Risc_V_single_Cycle\src\RISC_V_Single_Cycle.v
+FC:\ACP_proj\Risc_V_single_Cycle\src\RISC_V_Single_Cycle.v
+!i122 1164
+L0 22 405
+R4
 r1
 !s85 0
 31
-R19
-!s107 C:/ACP_proj/Risc_V_single_Cycle/src/RISC_V_Single_Cycle.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/RISC_V_Single_Cycle.v|
+!s108 1637192240.000000
+!s107 C:\ACP_proj\Risc_V_single_Cycle\src\RISC_V_Single_Cycle.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\ACP_proj\Risc_V_single_Cycle\src\RISC_V_Single_Cycle.v|
 !i113 1
+R5
 R6
-R7
 n@r@i@s@c_@v_@single_@cycle
 vRISC_V_Single_Cycle_TB
-R20
+!s110 1637192241
 !i10b 1
 !s100 1^bOZhYVdM<>0g4;c;BaI0
-R1
+R0
 II>l@=nmBP^?0g<[FJ`n690
+R1
 R2
 R3
-R4
 8C:/ACP_proj/Risc_V_single_Cycle/src/RISC_V_Single_Cycle_TB.v
 FC:/ACP_proj/Risc_V_single_Cycle/src/RISC_V_Single_Cycle_TB.v
-!i122 1001
+!i122 1165
 L0 15 26
-R5
+R4
 r1
 !s85 0
 31
@@ -414,6 +510,6 @@ R10
 !s107 C:/ACP_proj/Risc_V_single_Cycle/src/RISC_V_Single_Cycle_TB.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ACP_proj/Risc_V_single_Cycle/src/RISC_V_Single_Cycle_TB.v|
 !i113 1
+R5
 R6
-R7
 n@r@i@s@c_@v_@single_@cycle_@t@b
