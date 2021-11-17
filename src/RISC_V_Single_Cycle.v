@@ -11,6 +11,8 @@
 *	1.0
 * Author:
 *	Dr. José Luis Pizano Escalante
+*	editado por: Guevara Martinez Adrian
+*					 Peralta Osorio Mauricio				 
 * email:
 *	luispizano@iteso.mx
 * Date:
@@ -26,8 +28,8 @@ module RISC_V_Single_Cycle
 (
 	// Inputs
 	input clk,
-	input reset,
-	output [31:0]forclkrate
+	input reset
+	//output [31:0]forclkrate
 );
 //******************************************************************/
 //******************************************************************/
@@ -90,6 +92,21 @@ wire [31:0] ADDER_PC_PLUS_INMM_w;
 wire [31:0] Wirte_Pcplus4toRegis_OR_dataAluOrMem_w;
 /**Multiplexer MUX_JALR_OR_brancheJalORPCplus4_w**/
 wire [31:0]Wirte_JALR_OR_brancheJalORPCplus4_w;
+
+
+//******************************************************************/
+          //*********cables agregados PARA PIPELINE*****************/
+//******************************************************************/
+
+/** IF/ID Bus**/	
+wire [31:0] Nw_instruction_bus_w;
+/** ID/EX Bus**/
+wire [115:0]OutIDEX_w;
+/** EX/MEM Bus**/
+wire [71:0]OutEXMEM_w;
+/** MEM/WB Bus**/
+wire [71:0]OutMEMWB_w;
+
 //******************************************************************/
 //******************************************************************/
 //******************************************************************/
@@ -99,7 +116,7 @@ Control
 CONTROL_UNIT
 (
 	/****/
-	.OP_i(instruction_bus_w[6:0]),
+	.OP_i(Nw_instruction_bus_w[6:0]),
 	/** outputus**/
 	.JalR_o(JalRsignal_w),
 	.Jal_o(jalsignal_w),
@@ -158,9 +175,9 @@ REGISTER_FILE_UNIT
 	.clk(clk),
 	.reset(reset),
 	.Reg_Write_i(reg_write_w),
-	.Write_Register_i(instruction_bus_w[11:7]),
-	.Read_Register_1_i(instruction_bus_w[19:15]),
-	.Read_Register_2_i(instruction_bus_w[24:20]),
+	.Write_Register_i(OutMEMWB_w[68:64]),
+	.Read_Register_1_i(Nw_instruction_bus_w[19:15]),
+	.Read_Register_2_i(Nw_instruction_bus_w[24:20]),
 	.Write_Data_i(Wirte_Pcplus4toRegis_OR_dataAluOrMem_w),
 	.Read_Data_1_o(read_data_1_w),
 	.Read_Data_2_o(read_data_2_w)
@@ -171,8 +188,8 @@ REGISTER_FILE_UNIT
 
 Immediate_Unit
 IMM_UNIT
-(  .op_i(instruction_bus_w[6:0]),
-   .Instruction_bus_i(instruction_bus_w),
+(  .op_i(Nw_instruction_bus_w[6:0]),
+   .Instruction_bus_i(Nw_instruction_bus_w),
    .Immediate_o(inmmediate_data_w)
 );
 
@@ -184,9 +201,9 @@ Multiplexer_2_to_1
 )
 MUX_DATA_OR_IMM_FOR_ALU
 (
-	.Selector_i(alu_src_w),
-	.Mux_Data_0_i(read_data_2_w),
-	.Mux_Data_1_i(inmmediate_data_w),
+	.Selector_i(OutIDEX_w[111]),
+	.Mux_Data_0_i(OutIDEX_w[95:64]),
+	.Mux_Data_1_i(OutIDEX_w[31:0]),
 	
 	.Mux_Output_o(read_data_2_or_imm_w)
 
@@ -196,9 +213,9 @@ MUX_DATA_OR_IMM_FOR_ALU
 ALU_Control
 ALU_CONTROL_UNIT
 (
-	.funct7_i(instruction_bus_w[30]),
-	.ALU_Op_i(alu_op_w),
-	.funct3_i(instruction_bus_w[14:12]),
+	.funct7_i(OutIDEX_w[115]),
+	.ALU_Op_i(OutIDEX_w[103:101]),
+	.funct3_i(OutIDEX_w[114:112]),
 	.ALU_Operation_o(alu_operation_w)
 
 );
@@ -209,7 +226,7 @@ ALU
 ALU_UNIT
 (
 	.ALU_Operation_i(alu_operation_w),
-	.A_i(read_data_1_w),
+	.A_i(OutIDEX_w[63:32]),
 	.B_i(read_data_2_or_imm_w),
 	.ALU_Result_o(alu_result_w),
 	.Zero_o(Zero_O_w)
@@ -228,10 +245,10 @@ Data_Memory
 Data_memory
 (
 	.clk(clk),
-	.Mem_Write_i(mem_write_w),
-	.Mem_Read_i(mem_read_w),
-	.Write_Data_i(read_data_2_w),
-	.Address_i(alu_result_w),
+	.Mem_Write_i(OutEXMEM_w[70]),
+	.Mem_Read_i(OutEXMEM_w[71]),
+	.Write_Data_i(OutEXMEM_w[63:32]),//cambiar los buses de ex a mem 
+	.Address_i(OutEXMEM_w[31:0]),
 
 	.Read_Data_o(Read_data_mem_w)
 );
@@ -243,9 +260,9 @@ Multiplexer_2_to_1
 )
 MUX_data_OR_mem_FOR_Wregister
 (
-	.Selector_i(mem_to_reg_w),
-	.Mux_Data_0_i(alu_result_w),
-	.Mux_Data_1_i(Read_data_mem_w),
+	.Selector_i(OutMEMWB_w[69]),
+	.Mux_Data_0_i(OutMEMWB_w[31:0]),
+	.Mux_Data_1_i(OutMEMWB_w[63:32]),
 	
 	.Mux_Output_o(Wirte_data_Rdat_or_Datmem_w)
 
@@ -327,8 +344,84 @@ MUX_JALR_OR_BRANCHJalORPCplus4
 
 );
 
+//******************************************************************/
+          //*********AGREGADO PARA PIPELINE*****************/
+//******************************************************************/
 
-assign forclkrate= Wirte_JALR_OR_brancheJalORPCplus4_w;
+RegisterIF_ID
+IF_ID
+(
+	.clk(clk),
+	.reset(reset),
+	.enable(1),
+	.DataOutput(Nw_instruction_bus_w),
+	.DataInput(instruction_bus_w)
+
+);
+
+RegisterID_EX
+ID_EX
+(
+	.clk(clk),
+	.reset(reset),
+	.enable(1),
+	.RegWrite_in(reg_write_w),
+	.Jalr_in(JalRsignal_w),
+	.Jal_in(jalsignal_w),
+	.func3_in(Nw_instruction_bus_w[14:12]),
+	.func7_in(Nw_instruction_bus_w[30]),
+	.Branch_in(Branch_w),
+	.MemRead_in(mem_read_w),
+	.MemWrite_in(mem_write_w),
+	.MemToReg_in(mem_to_reg_w),
+	.AluSrc_in(alu_src_w),
+	.ALUOp_in(alu_op_w),
+	.Rd1_in(read_data_1_w),
+	.Rd2_in(read_data_2_w),
+	.RD_in(Nw_instruction_bus_w[11:7]),
+	.mm_Unit_in(inmmediate_data_w),
+	
+	.DataOut_ID_EX(OutIDEX_w)
+	
+);
+
+
+RegisterEX_MEM
+EX_MEM
+(
+	.clk(clk),
+	.reset(reset),
+	.enable(1),
+	.ALU_result_in(alu_result_w),
+	.Rd2_in(OutIDEX_w[95:64]),
+	.RD_in(OutIDEX_w[100:96]),
+	.MemRead_in(OutIDEX_w[107]),
+	.MemWrite_in(OutIDEX_w[106]),
+	.MemToReg_in(OutIDEX_w[105]),
+	
+	.DataOutEX_MEM(OutEXMEM_w)
+	
+);
+
+
+RegisterMEM_WB
+MEM_WB
+(
+	.clk(clk),
+	.reset(reset),
+	.enable(1),
+	.MemWrite_in(OutEXMEM_w[70]),
+	.MemRead_in(OutEXMEM_w[71]),
+	.MemToReg_in(OutEXMEM_w[69]),
+	.RD_in(OutEXMEM_w[68:64]),
+	.ReadData_in(Read_data_mem_w),
+	.ALU_result_in(OutEXMEM_w[31:0]),
+	
+	.DataOutMEM_WB(OutMEMWB_w)
+		
+);
+
+//assign forclkrate= Wirte_JALR_OR_brancheJalORPCplus4_w;
 
 endmodule
 
