@@ -25,7 +25,7 @@ module PC_Register
 	output reg [N-1:0] PC_Value
 );
 
-always@(negedge reset or posedge clk) begin
+always@(negedge reset or negedge clk) begin
 	if(reset==0)
 		PC_Value <= 4194304; //se inicio el pc register en h400000
 	else	
