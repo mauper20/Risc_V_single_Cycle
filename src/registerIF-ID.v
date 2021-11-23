@@ -18,18 +18,26 @@ module RegisterIF_ID
 	input clk,
 	input reset,
 	input enable,
-	input  [N-1:0] DataInput,
+	input [N-1:0]pc_in,
+	input [N-1:0] DataInput,
 	
 	
-	output reg [N-1:0] DataOutput
+	output reg [N-1:0] DataOutput,
+	output reg [N-1:0] pc_out
 );
 
 always@(negedge reset or negedge clk) 
 	begin
 			if(reset==0)
-				DataOutput <= initvalue;
+				begin
+					DataOutput <= initvalue;
+					pc_out<= initvalue;
+				end
 			else	
 			if(enable==1)
-				DataOutput<=DataInput;
+				begin
+					DataOutput<=DataInput;
+					pc_out<= pc_in;
+				end
 	end
 endmodule
