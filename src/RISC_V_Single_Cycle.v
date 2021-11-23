@@ -97,15 +97,26 @@ wire [31:0]Wirte_JALR_OR_brancheJalORPCplus4_w;
 //******************************************************************/
           //*********cables agregados PARA PIPELINE*****************/
 //******************************************************************/
-
+/** PCout_IF/ID Bus**/	
+wire [31:0] PC_out_IFID_W;
 /** IF/ID Bus**/	
 wire [31:0] Nw_instruction_bus_w;
 /** ID/EX Bus**/
-wire [115:0]OutIDEX_w;
+wire [157:0]OutIDEX_w;
 /** EX/MEM Bus**/
-wire [71:0]OutEXMEM_w;
+wire [107:0]OutEXMEM_w;
 /** MEM/WB Bus**/
-wire [71:0]OutMEMWB_w;
+wire [70:0]OutMEMWB_w;
+//******************************************************************/
+   //*********cables agregados PARA PIPELINE*****************/
+			 //*********FORWARD UNIT*****************/
+//******************************************************************/
+/** Forward_A**/	
+wire [1:0] W_ForwardUnit_A_salida;
+wire [31:0] W_Forward_A_salida_MUX;
+/** Forward_B**/	
+wire [1:0] W_ForwardUnit_B_salida;
+wire [31:0] W_Forward_B_salida_MUX;
 
 //******************************************************************/
 //******************************************************************/
@@ -174,7 +185,7 @@ REGISTER_FILE_UNIT
 (
 	.clk(clk),
 	.reset(reset),
-	.Reg_Write_i(reg_write_w),
+	.Reg_Write_i(OutMEMWB_w[70]),
 	.Write_Register_i(OutMEMWB_w[68:64]),
 	.Read_Register_1_i(Nw_instruction_bus_w[19:15]),
 	.Read_Register_2_i(Nw_instruction_bus_w[24:20]),
@@ -226,8 +237,8 @@ ALU
 ALU_UNIT
 (
 	.ALU_Operation_i(alu_operation_w),
-	.A_i(OutIDEX_w[63:32]),
-	.B_i(read_data_2_or_imm_w),
+	.A_i(W_Forward_A_salida_MUX),
+	.B_i(W_Forward_B_salida_MUX),
 	.ALU_Result_o(alu_result_w),
 	.Zero_o(Zero_O_w)
 );
@@ -291,8 +302,8 @@ Adder_32_Bits
 )
 Adder_PC_PLUS_INMM
 (
-	.Data0(pc_w),
-	.Data1(inmmediate_data_w),
+	.Data0(OutIDEX_w[147:116]),
+	.Data1(OutIDEX_w[31:0]),
 	
 	.Result(ADDER_PC_PLUS_INMM_w)
 );
@@ -306,7 +317,7 @@ MUX_PCplus4_OR_BRANCHJal
 (
 	.Selector_i(AND_OUT_w),
 	.Mux_Data_0_i(pc_plus_4_w),
-	.Mux_Data_1_i(ADDER_PC_PLUS_INMM_w),
+	.Mux_Data_1_i(OutEXMEM_w[104:73]),
 	
 	.Mux_Output_o(Wirte_PCplus4_OR_brancheJal_w)
 
@@ -315,8 +326,8 @@ MUX_PCplus4_OR_BRANCHJal
 ANDGate
 BranchJAL
 (
-	.A(OR_OUT_w),
-	.B(Zero_O_w),
+	.A(OutEXMEM_w[107]),
+	.B(OutEXMEM_w[105]),
 	.C(AND_OUT_w)
 );
 
@@ -324,8 +335,8 @@ BranchJAL
 ORGate
 Branch_or_Jal
 (
-	.A(Branch_w),
-	.B(jalsignal_w),
+	.A(OutIDEX_w[110]),
+	.B(OutIDEX_w[108]),
 	.C(OR_OUT_w)
 );
 
@@ -355,7 +366,9 @@ IF_ID
 	.reset(reset),
 	.enable(1),
 	.DataOutput(Nw_instruction_bus_w),
-	.DataInput(instruction_bus_w)
+	.DataInput(instruction_bus_w),
+	.pc_in(pc_w),
+	.pc_out(PC_out_IFID_W)
 
 );
 
@@ -365,6 +378,9 @@ ID_EX
 	.clk(clk),
 	.reset(reset),
 	.enable(1),
+	.ID_EXRs1_in(Nw_instruction_bus_w[19:15]),
+	.ID_EXRs2_in(Nw_instruction_bus_w[24:20]),
+	.pc_in(PC_out_IFID_W),
 	.RegWrite_in(reg_write_w),
 	.Jalr_in(JalRsignal_w),
 	.Jal_in(jalsignal_w),
@@ -393,11 +409,16 @@ EX_MEM
 	.reset(reset),
 	.enable(1),
 	.ALU_result_in(alu_result_w),
-	.Rd2_in(OutIDEX_w[95:64]),
+	.Rd2_in(W_Forward_B_salida_MUX),
 	.RD_in(OutIDEX_w[100:96]),
 	.MemRead_in(OutIDEX_w[107]),
 	.MemWrite_in(OutIDEX_w[106]),
 	.MemToReg_in(OutIDEX_w[105]),
+	.RegWrite_in(OutIDEX_w[104]),
+	.ADDER_PC_PLUS_INMM_in(ADDER_PC_PLUS_INMM_w),
+	.Orgate_in(OR_OUT_w),
+	.Jalr_in(OutIDEX_w[109]),
+	.Zero_in(Zero_O_w),
 	
 	.DataOutEX_MEM(OutEXMEM_w)
 	
@@ -416,9 +437,52 @@ MEM_WB
 	.RD_in(OutEXMEM_w[68:64]),
 	.ReadData_in(Read_data_mem_w),
 	.ALU_result_in(OutEXMEM_w[31:0]),
+	.RegWrite_in(OutEXMEM_w[72]),
 	
 	.DataOutMEM_WB(OutMEMWB_w)
 		
+);
+//******************************************************************/
+          //*********AGREGADO PARA PIPELINE(FORWARD UNIT)*****************/
+//******************************************************************/
+
+Multiplexer_3_to_1
+FORWARD_A
+(   
+	.Selector_i(W_ForwardUnit_A_salida),
+	.Mux_Data_0_i(OutIDEX_w[63:32]),
+	.Mux_Data_1_i(Wirte_Pcplus4toRegis_OR_dataAluOrMem_w),
+	.Mux_Data_2_i(OutEXMEM_w[31:0]),
+
+	.Mux_Output_o(W_Forward_A_salida_MUX)
+
+);
+
+Multiplexer_3_to_1
+FORWARD_B
+(   
+	.Selector_i(W_ForwardUnit_B_salida),
+	.Mux_Data_0_i(read_data_2_or_imm_w),
+	.Mux_Data_1_i(Wirte_Pcplus4toRegis_OR_dataAluOrMem_w),
+	.Mux_Data_2_i(OutEXMEM_w[31:0]),
+
+	.Mux_Output_o(W_Forward_B_salida_MUX)
+
+);
+
+forwarding_unit
+FORWARDUNIT
+(
+	.EX_MEMRegWrite(OutEXMEM_w[72]),
+	.MEM_WBRegWrite(OutMEMWB_w[70]),
+	.ID_EXRs1(OutIDEX_w[152:148]), 
+	.ID_EXRs2(OutIDEX_w[157:153]), 
+	.EX_MEMRegRd(OutEXMEM_w[68:64]), 
+	.MEM_WBRegRd(OutMEMWB_w[68:64]),
+	
+	.Forward_A(W_ForwardUnit_A_salida), 
+	.Forward_B(W_ForwardUnit_B_salida)
+
 );
 
 //assign forclkrate= Wirte_JALR_OR_brancheJalORPCplus4_w;
