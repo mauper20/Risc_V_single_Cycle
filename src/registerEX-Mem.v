@@ -17,20 +17,25 @@ module RegisterEX_MEM
 	input clk,
 	input reset,
 	input enable,
+	input Orgate_in,
+	input Jalr_in,
+	input Zero_in,
 	input MemRead_in,
 	input MemWrite_in,
 	input MemToReg_in,
+	input RegWrite_in,
+	input [31:0] ADDER_PC_PLUS_INMM_in,
 	input [4:0]  RD_in,
 	input [31:0] Rd2_in,
 	input [31:0] ALU_result_in,
 
 
-	output reg [71:0] DataOutEX_MEM
+	output reg [107:0] DataOutEX_MEM
 	
 );
-wire [71:0] datos;
+wire [107:0] datos;
 
-assign datos = {MemRead_in,MemWrite_in,MemToReg_in,RD_in,Rd2_in,ALU_result_in};
+assign datos = {Orgate_in,Jalr_in,Zero_in,ADDER_PC_PLUS_INMM_in,RegWrite_in,MemRead_in,MemWrite_in,MemToReg_in,RD_in,Rd2_in,ALU_result_in};
 
 always@(negedge reset or negedge clk) 
 	begin
