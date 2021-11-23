@@ -20,14 +20,15 @@ module RegisterMEM_WB
 	input MemWrite_in,
 	input MemRead_in,
 	input MemToReg_in,
+	input RegWrite_in,
 	input [4:0]  RD_in,
 	input [31:0] ReadData_in,
 	input [31:0] ALU_result_in,
 
-	output reg [71:0]DataOutMEM_WB
+	output reg [70:0]DataOutMEM_WB
 );
-wire [71:0] datos;
-assign datos = {MemRead_in,MemWrite_in,MemToReg_in,RD_in,ReadData_in,ALU_result_in};
+wire [70:0] datos;
+assign datos = {RegWrite_in,MemToReg_in,RD_in,ReadData_in,ALU_result_in};
 
 always@(negedge reset or negedge clk) 
 	begin
