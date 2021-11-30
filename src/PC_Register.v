@@ -20,7 +20,7 @@ module PC_Register
 	input clk,
 	input reset,
 	input  [N-1:0] Next_PC,
-	
+	input stall,
 	
 	output reg [N-1:0] PC_Value
 );
@@ -28,8 +28,10 @@ module PC_Register
 always@(negedge reset or negedge clk) begin
 	if(reset==0)
 		PC_Value <= 4194304; //se inicio el pc register en h400000
-	else	
+	else if(stall==0)
 		PC_Value<= Next_PC;
+	else if(stall==1)
+	   PC_Value<= PC_Value;
 end
 
 endmodule
