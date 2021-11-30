@@ -16,11 +16,11 @@ output reg[1:0] Forward_A, Forward_B,
 input[4:0] ID_EXRs1, ID_EXRs2, EX_MEMRegRd, MEM_WBRegRd
 );
 
-always @(ID_EXRs1, EX_MEMRegRd, EX_MEMRegWrite, MEM_WBRegWrite, MEM_WBRegRd)
+always @(ID_EXRs1,EX_MEMRegRd, EX_MEMRegWrite, MEM_WBRegWrite, MEM_WBRegRd)
     begin
         if(EX_MEMRegWrite &&(EX_MEMRegRd != 0)&&(EX_MEMRegRd == ID_EXRs1))
                 Forward_A = 2'b10;
-        else if(MEM_WBRegWrite &&(MEM_WBRegRd != 0)&&(EX_MEMRegRd!= ID_EXRs1)&&(MEM_WBRegRd == ID_EXRs1))
+        else if(MEM_WBRegWrite &&(MEM_WBRegRd != 0)&&(EX_MEMRegRd!= ID_EXRs1)&&(MEM_WBRegRd == ID_EXRs1))//1
                 Forward_A  = 2'b01;
         else 
                 Forward_A  = 2'b00;
@@ -29,12 +29,12 @@ always @(ID_EXRs1, EX_MEMRegRd, EX_MEMRegWrite, MEM_WBRegWrite, MEM_WBRegRd)
 always @(ID_EXRs2, EX_MEMRegRd, EX_MEMRegWrite, MEM_WBRegWrite, MEM_WBRegRd)
     begin
         if(EX_MEMRegWrite &&(EX_MEMRegRd != 0)&&(EX_MEMRegRd == ID_EXRs2))
-                Forward_B = 2'b10;
+                Forward_B = 2'b10;//2'b10
         else 
-	if(MEM_WBRegWrite &&(MEM_WBRegRd != 0)&&(EX_MEMRegRd!= ID_EXRs2)&&(MEM_WBRegRd == ID_EXRs2))
+	     if(MEM_WBRegWrite &&(MEM_WBRegRd != 0)&&(EX_MEMRegRd!= ID_EXRs2)&&(MEM_WBRegRd == ID_EXRs2))
                 Forward_B = 2'b01;
         else 
-                Forward_B = 2'b00;
+                Forward_B = 2'b00;//2'b00
     end
 
 endmodule
