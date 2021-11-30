@@ -2,7 +2,7 @@
 
 module Multiplexer_2_to_1_Control
 #(
-	parameter NBits = 8
+	parameter NBits = 11
 )
 (   
 	input Selector_i,
