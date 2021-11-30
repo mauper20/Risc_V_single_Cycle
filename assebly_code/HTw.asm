@@ -24,8 +24,16 @@ StGameHTw: #(star game hanoi's towers)
 	sw  ra, 4(sp)    
 	sw  s0, 0(sp) 
 	bne s0, t0, StGameHTw_recursiva 
+	add zero, zero, zero
 	jal ra, StGameHTw_mov #caso base mueve el ultimo disco en la torre origen a la destino
+	add zero, zero, zero
+	add zero, zero, zero
+	add zero, zero, zero
+	add zero, zero, zero
 	jal zero, StGameHTw_return
+	add zero, zero, zero
+	add zero, zero, zero
+	add zero, zero, zero
 StGameHTw_recursiva:	
 	addi s0, s0, -1    #(n-1)
 	jal ra, ChangeHTw1 
@@ -43,14 +51,18 @@ StGameHTw_return:
 
 ChangeHTw2:
 	add t3, zero, s3 # hanoi(n-1,aux, destino, origen)
+	add zero, zero, zero
 	add s3, zero, s2 #usaremos t3 para hacer el cambio entre las torres
 	add s2, zero, t3
+	add zero, zero, zero
 	jalr zero, ra, 0
 	
 ChangeHTw1:
 	add t3, zero, s3 # hanoi(n-1,origen, destino, aux)
+	add zero, zero, zero
 	add s3, zero, s4 #usaremos t3 para hacer el cambio entre las torres
 	add s4, zero, t3
+	add zero, zero, zero
 	jalr zero, ra, 0
 	
 StGameHTw_mov:           #funcion para mover los discos
@@ -60,6 +72,7 @@ StGameHTw_mov:           #funcion para mover los discos
 	addi s2, s2, -4  # reducimos el tamaño de la torre y borramos el valor que se saco
 	sw   a1, 0(s4)   # guardamos el valor sacado en la torre de destino
 	addi s4, s4, 4	 #aumentamos la direccion la torre de destino
+	add zero, zero, zero
 	jalr zero, ra, 0 
 end:
 	
