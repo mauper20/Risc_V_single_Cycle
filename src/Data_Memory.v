@@ -11,7 +11,7 @@
 ******************************************************************/
 
 module Data_Memory 
-#(	parameter DATA_WIDTH = 8,
+#(	parameter DATA_WIDTH = 8,//8
 	parameter MEMORY_DEPTH = 256 //se modifico el tamaño de la memoria
 
 )
