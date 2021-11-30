@@ -35,21 +35,26 @@ module RegisterID_EX
 	input [31:0] Rd2_in,
 	input [4:0]  RD_in,
 	input [31:0] mm_Unit_in,
+	input [31:0]PC,
+	input [31:0]PCplus4,
+	input Flush,
 
-	output reg [157:0] DataOut_ID_EX
+	output reg [221:0] DataOut_ID_EX
 	
 );
-wire [157:0] datos;
+wire [221:0] datos;
 
-assign datos = {ID_EXRs2_in,ID_EXRs1_in,pc_in,func7_in,func3_in,AluSrc_in,Branch_in,Jalr_in,Jal_in,MemRead_in,MemWrite_in,MemToReg_in,RegWrite_in,ALUOp_in,RD_in,Rd2_in,Rd1_in,mm_Unit_in};
+assign datos = {PCplus4,PC,ID_EXRs2_in,ID_EXRs1_in,pc_in,func7_in,func3_in,AluSrc_in,Branch_in,Jalr_in,Jal_in,MemRead_in,MemWrite_in,MemToReg_in,RegWrite_in,ALUOp_in,RD_in,Rd2_in,Rd1_in,mm_Unit_in};
 
 always@(negedge reset or negedge clk) 
 	begin
 		if(reset==0)
-			DataOut_ID_EX<=initvalue;
-		
+					DataOut_ID_EX<=0;
+		else
+		if(Flush==1)
+					DataOut_ID_EX<=0;
 		else	
 		if(enable==1)
-			DataOut_ID_EX<=datos;
+			DataOut_ID_EX<=datos;//maybe en otro always
 	end
 endmodule
