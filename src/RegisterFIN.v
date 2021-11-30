@@ -11,7 +11,7 @@ module RegisterFIN
 	output reg DataOutMEM_WB
 );
 wire datos;
-assign datos = {memwrite};
+assign datos = memwrite;
 
 always@(negedge reset or negedge clk) 
 	begin	
